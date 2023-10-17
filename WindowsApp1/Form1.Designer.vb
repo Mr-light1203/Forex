@@ -295,6 +295,7 @@ Partial Class Form1
         Me.TextBox2.ReadOnly = True
         Me.TextBox2.Size = New System.Drawing.Size(164, 31)
         Me.TextBox2.TabIndex = 21
+        Me.TextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Flag_1
         '

@@ -1,4 +1,5 @@
 ﻿Public Class Form1
+
     Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
         If ComboBox1.SelectedItem.ToString() = "US Dollar" Then
             Flag_1.Visible = True
@@ -199,7 +200,30 @@
                 Dim exchangeRate As Double = GetExchangeRate(fromCurrency, toCurrency)
                 If exchangeRate >= 0 Then
                     Dim convertedAmount As Double = amount * exchangeRate
-                    TextBox2.Text = convertedAmount.ToString("F2") & " " & toCurrency
+                    Dim currencySymbol As String = ""
+                    Select Case toCurrency
+                        Case "US Dollar"
+                            currencySymbol = "$"
+                        Case "Hongkong Dollar"
+                            currencySymbol = "HKD"
+                        Case "Canadian Dollar"
+                            currencySymbol = "CAD"
+                        Case "Indian Rupee"
+                            currencySymbol = "₹"
+                        Case "Sri Lankan Rupee"
+                            currencySymbol = "₨"
+                        Case "UAE Dinar"
+                            currencySymbol = "AED"
+                        Case "UK Pound"
+                            currencySymbol = "£"
+                        Case "Japanese Yen"
+                            currencySymbol = "¥"
+                        Case "Euro"
+                            currencySymbol = "€"
+                        Case "Philippine Peso"
+                            currencySymbol = "₱"
+                    End Select
+                    TextBox2.Text = currencySymbol & " " & convertedAmount.ToString("F2")
                 Else
                     MessageBox.Show("Invalid conversion rate.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
 
@@ -430,3 +454,4 @@
         Return -1
     End Function
 End Class
+
